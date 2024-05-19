@@ -1,3 +1,3 @@
-# MERN-Stack Infrastructure
+# Code Editor
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+Code Editor is an online code editor built with the MERN stack. Users can write code and "jump" to various points in their written code.
