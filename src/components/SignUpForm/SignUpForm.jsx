@@ -7,21 +7,21 @@ export default class SignUpForm extends Component {
     email: '',
     password: '',
     confirm: '',
-    error: ''
+    error: '',
   };
 
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
-      error: ''
+      error: '',
     });
   };
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const {name, email, password} = this.state;
-      const formData = {name, email, password};
+      const { name, email, password } = this.state;
+      const formData = { name, email, password };
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)

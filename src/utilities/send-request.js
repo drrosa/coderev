@@ -1,10 +1,10 @@
 // send-request.js
 
-import { getToken } from "./users-service";
+import { getToken } from './user-token';
 
 export default async function sendRequest(url, method = 'GET', payload = null) {
   // Fetch accepts an options object as the 2nd argument
-  // used to include a data payload, set headers, etc. 
+  // used to include a data payload, set headers, etc.
   const options = { method };
   if (payload) {
     options.headers = { 'Content-Type': 'application/json' };

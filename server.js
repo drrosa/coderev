@@ -26,10 +26,11 @@ app.use('/api/users', require('./routes/api/users'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
-app.get('/*', function(req, res) {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(port, function() {
+app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Express app running on port ${port}`);
 });

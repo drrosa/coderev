@@ -2,11 +2,16 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
 
-module.exports = {
-  create,
-  login,
-  checkToken
-};
+/* --- Helper Functions --*/
+
+function createJWT(user) {
+  return jwt.sign(
+    // data payload
+    { user },
+    process.env.SECRET,
+    { expiresIn: '24h' },
+  );
+}
 
 async function create(req, res) {
   try {
@@ -21,7 +26,7 @@ async function create(req, res) {
 
 async function login(req, res) {
   try {
-    const user = await User.findOne({email: req.body.email});
+    const user = await User.findOne({ email: req.body.email });
     if (!user) throw new Error();
     const match = await bcrypt.compare(req.body.password, user.password);
     if (!match) throw new Error();
@@ -33,18 +38,11 @@ async function login(req, res) {
 }
 
 function checkToken(req, res) {
-
-  console.log('req.user', req.user);
   res.json(req.exp);
 }
 
-/*--- Helper Functions --*/
-
-function createJWT(user) {
-  return jwt.sign(
-    // data payload
-    { user },
-    process.env.SECRET,
-    { expiresIn: '24h' }
-  );
-}
+module.exports = {
+  create,
+  login,
+  checkToken,
+};
