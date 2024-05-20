@@ -23,7 +23,3 @@ export async function login(credentials) {
 export function logOut() {
   localStorage.removeItem('token');
 }
-
-export function checkToken() {
-  return usersAPI.checkToken().then((dateStr) => new Date(dateStr));
-}
