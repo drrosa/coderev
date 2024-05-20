@@ -8,11 +8,16 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import FileList from '../../components/FileList/FileList';
+import NewFileForm from '../../components/NewFileForm/NewFileForm';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [files, setFiles] = useState([]);
   const navigate = useNavigate();
+
+  function addFile(file) {
+    setFiles([...files, file]);
+  }
 
   return (
     <Provider theme={defaultTheme} router={{ navigate, useHref }}>
@@ -20,6 +25,7 @@ export default function App() {
         { user
           ? <>
               <NavBar user={user} setUser={setUser} />
+              <NewFileForm addFile={addFile} user={user} />
               { files.length
                 ? <FileList files={files} />
                 : <h3>No Files Yet!</h3>
