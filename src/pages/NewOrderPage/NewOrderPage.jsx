@@ -1,5 +1,10 @@
+import DropDownMenu from '../../components/DropDownMenu';
+
 export default function NewOrderPage() {
   return (
-    <h1>NewOrderPage</h1>
+    <div>
+      <h1>NewOrderPage</h1>
+      <DropDownMenu />
+    </div>
   );
 }
