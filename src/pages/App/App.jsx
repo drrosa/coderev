@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import {
+  useHref, useNavigate, Routes, Route,
+} from 'react-router-dom';
+import { defaultTheme, Provider } from '@adobe/react-spectrum';
 import { getUser } from '../../utilities/user-token';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
@@ -9,20 +12,19 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-
+  const navigate = useNavigate();
   return (
-    <main className="App">
-      { user
-        ? <>
-            <NavBar user={user} setUser={setUser} />
-            <Routes>
-              {/* Route components in here */}
-              <Route path="/orders/new" element={<NewOrderPage />} />
-              <Route path="/orders" element={<OrderHistoryPage />} />
-            </Routes>
-          </>
-        : <AuthPage setUser={setUser} />
-      }
-    </main>
+      <main className="App">
+        { user
+          ? <Provider theme={defaultTheme} router={{ navigate, useHref }}>
+              <NavBar user={user} setUser={setUser} />
+              <Routes>
+                <Route path="/orders/new" element={<NewOrderPage />} />
+                <Route path="/orders" element={<OrderHistoryPage />} />
+              </Routes>
+            </Provider>
+          : <AuthPage setUser={setUser} />
+        }
+      </main>
   );
 }
