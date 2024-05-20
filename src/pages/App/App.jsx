@@ -14,17 +14,19 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const navigate = useNavigate();
   return (
+    <Provider theme={defaultTheme} router={{ navigate, useHref }}>
       <main className="App">
         { user
-          ? <Provider theme={defaultTheme} router={{ navigate, useHref }}>
+          ? <>
               <NavBar user={user} setUser={setUser} />
               <Routes>
                 <Route path="/orders/new" element={<NewOrderPage />} />
                 <Route path="/orders" element={<OrderHistoryPage />} />
               </Routes>
-            </Provider>
+            </>
           : <AuthPage setUser={setUser} />
         }
       </main>
+    </Provider>
   );
 }
