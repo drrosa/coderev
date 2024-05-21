@@ -4,7 +4,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { tokyoNight } from '@uiw/codemirror-theme-tokyo-night';
 import './Editor.css';
 
-export default function Editor({ setContent }) {
+export default function Editor({ setContent, isEditorActive }) {
   const [text, setText] = useState('');
 
   const handleOnChange = (textValue) => {
@@ -13,7 +13,7 @@ export default function Editor({ setContent }) {
   };
 
   return (
-    <div className='editor'>
+    <div className='editor' style={{ visibility: `${isEditorActive ? 'visible' : 'hidden'}` }}>
       <CodeMirror
         value={text}
         onChange={(value) => handleOnChange(value)}
@@ -25,6 +25,7 @@ export default function Editor({ setContent }) {
           indentWithTabs: true,
         }}
         extensions={[javascript({ jsx: true })]}
+        autoFocus={isEditorActive}
       />
     </div>
   );
