@@ -4,9 +4,11 @@
   "private": true,
   "dependencies": {
     "@adobe/react-spectrum": "^3.35.0",
+    "@codemirror/lang-javascript": "^6.2.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@uiw/codemirror-theme-tokyo-night": "^4.22.1",
     "@uiw/react-codemirror": "^4.22.1",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
