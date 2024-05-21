@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Editor from '../Editor/Editor';
 
 export default function NewFileForm({ addFile, user }) {
   const [content, setContent] = useState('');
@@ -32,6 +33,7 @@ export default function NewFileForm({ addFile, user }) {
         />
         <button type="submit">SAVE FILE</button>
       </form>
+      <Editor />
     </div>
   );
 }
