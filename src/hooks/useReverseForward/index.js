@@ -3,8 +3,6 @@ import { useState } from 'react';
 export default function useReverseForward(initialValue) {
   const [codeHistory, setCodeHistory] = useState([initialValue]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  console.log(codeHistory);
-  console.log(codeHistory.join(''));
   const set = (value) => {
     const newCodeHistory = codeHistory.slice(0, currentIndex + 1);
     newCodeHistory.push(value);
@@ -14,8 +12,6 @@ export default function useReverseForward(initialValue) {
 
   const reverse = () => {
     setCurrentIndex(() => Math.max(currentIndex - 1, 0));
-    console.log(currentIndex);
-    console.log('i am reverse function');
   };
 
   const forward = () => {
