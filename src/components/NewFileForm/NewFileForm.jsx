@@ -28,9 +28,6 @@ export default function NewFileForm({ addFile, user }) {
 
   async function handleAddFile(evt) {
     evt.preventDefault();
-    if (evt.target.id !== 'save-btn') {
-      return;
-    }
     const fileData = { filename, user };
     addFile(fileData);
     setFilename(filename);
@@ -63,13 +60,14 @@ export default function NewFileForm({ addFile, user }) {
             onChange={(evt) => evt.preventDefault()}
             onClick={() => setIsEditorActive(true)}
             placeholder="Content..."
-            // required
+            required
             pattern=".{4,}"
           />
           <Editor value={value} setValue={setValue} isEditorActive={isEditorActive} />
         </div>
         <button id="save-btn" type="submit">SAVE FILE</button>
-        <button
+      </form>
+      <button
           onMouseDown={() => handleMouseDown(reverse)}
           onMouseUp={handleMouseUp}
         >
@@ -83,7 +81,6 @@ export default function NewFileForm({ addFile, user }) {
         >
           Hold Forward
         </button>
-      </form>
     </div>
   );
 }
