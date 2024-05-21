@@ -4,13 +4,19 @@ import { javascript } from '@codemirror/lang-javascript';
 import { tokyoNight } from '@uiw/codemirror-theme-tokyo-night';
 import './Editor.css';
 
-export default function Editor() {
+export default function Editor({ setContent }) {
   const [text, setText] = useState('');
+
+  const handleOnChange = (textValue) => {
+    setText(textValue);
+    setContent(textValue);
+  };
+
   return (
     <div className='editor'>
       <CodeMirror
         value={text}
-        onChange={(value) => setText(value)}
+        onChange={(value) => handleOnChange(value)}
         theme={tokyoNight}
         style={{ textAlign: 'left', overflow: 'auto' }}
         options={{
