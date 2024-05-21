@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './NewFileForm.css';
+import Editor from '../Editor/Editor';
 
 export default function NewFileForm({ addFile, user }) {
   const [content, setContent] = useState('');
@@ -27,12 +28,11 @@ export default function NewFileForm({ addFile, user }) {
           <div className="textarea-container">
             <textarea
               value={content}
-              onChange={(evt) => setContent(evt.target.value)}
               placeholder="Content..."
               required
               pattern=".{4,}"
-              readOnly
             />
+            <Editor setContent={setContent} />
           </div>
           <button type="submit">SAVE FILE</button>
         </form>
