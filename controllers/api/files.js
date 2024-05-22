@@ -9,6 +9,17 @@ async function create(req, res) {
   }
 }
 
+async function index(req, res) {
+  try {
+    // eslint-disable-next-line no-underscore-dangle
+    const files = await File.find({ user: req.user._id }).select('-user -__v');
+    res.json(files);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
 module.exports = {
   create,
+  index,
 };
