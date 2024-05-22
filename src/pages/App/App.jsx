@@ -18,10 +18,14 @@ export default function App() {
 
   useEffect(() => {
     async function getFiles() {
-      setFiles(await fetchFiles());
+      if (user) {
+        setFiles(await fetchFiles());
+      } else {
+        setFiles([]);
+      }
     }
     getFiles();
-  }, []);
+  }, [user]);
 
   function addFile(file) {
     setFiles([...files, file]);
