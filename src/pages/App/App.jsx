@@ -14,6 +14,7 @@ import { fetchFiles } from '../../utilities/files-api';
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [files, setFiles] = useState([]);
+  const [foundFile, setFoundFile] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,15 +32,22 @@ export default function App() {
     setFiles([...files, file]);
   }
 
+  function findFile(fileID) {
+    const thisFile = files.find((file) => file._id === fileID);
+
+    setFoundFile(thisFile);
+    // console.log(foundFile);
+  }
+
   return (
     <Provider theme={defaultTheme} router={{ navigate, useHref }}>
       <main className="App">
         { user
           ? <>
               <NavBar user={user} setUser={setUser} />
-              <NewFileForm addFile={addFile} user={user} />
+              <NewFileForm addFile={addFile} user={user} foundFile={foundFile} />
               { files.length
-                ? <FileList files={files} />
+                ? <FileList files={files} findFile={findFile} />
                 : <h3>No Files Yet!</h3>
               }
             </>

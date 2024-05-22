@@ -4,7 +4,7 @@ import Editor from '../Editor/Editor';
 import useReverseForward from '../../hooks/useReverseForward';
 import { createFile } from '../../utilities/files-api';
 
-export default function NewFileForm({ addFile, user }) {
+export default function NewFileForm({ addFile, user, foundFile }) {
   const [filename, setFilename] = useState('');
   const [isEditorActive, setIsEditorActive] = useState(false);
   const textareaContainerRef = useRef(null);
@@ -58,7 +58,7 @@ export default function NewFileForm({ addFile, user }) {
         />
         <div className="textarea-container" ref={textareaContainerRef}>
           <textarea
-            value={contentLog.join('')}
+            value={foundFile.length !== 0 ? foundFile.contentLog.join('') : contentLog.join('')}
             onChange={(evt) => evt.preventDefault()}
             onClick={() => setIsEditorActive(true)}
             placeholder="Content..."
@@ -66,6 +66,7 @@ export default function NewFileForm({ addFile, user }) {
             pattern=".{4,}"
           />
           <Editor
+            foundFile={foundFile}
             contentLog={contentLog}
             setContentLog={setContentLog}
             isEditorActive={isEditorActive}
