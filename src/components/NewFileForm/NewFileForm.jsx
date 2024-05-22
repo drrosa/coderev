@@ -2,12 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import './NewFileForm.css';
 import Editor from '../Editor/Editor';
 import useReverseForward from '../../hooks/useReverseForward';
+import { createFile } from '../../utilities/files-api';
 
 export default function NewFileForm({ addFile, user }) {
   const [filename, setFilename] = useState('');
   const [isEditorActive, setIsEditorActive] = useState(false);
   const textareaContainerRef = useRef(null);
-  const [value, setValue, reverse, forward] = useReverseForward([], 25);
+  const [contentLog, setContentLog, reverse, forward] = useReverseForward([], 25);
   // eslint-disable-next-line no-unused-vars
   const [intervalId, setIntervalId] = useState(null);
   const intervalRef = useRef(null);
@@ -28,8 +29,9 @@ export default function NewFileForm({ addFile, user }) {
 
   async function handleAddFile(evt) {
     evt.preventDefault();
-    const fileData = { filename, user };
-    addFile(fileData);
+    const fileData = { filename, user, contentLog };
+    const file = await createFile(fileData);
+    addFile(file);
     setFilename(filename);
   }
 
@@ -56,14 +58,18 @@ export default function NewFileForm({ addFile, user }) {
         />
         <div className="textarea-container" ref={textareaContainerRef}>
           <textarea
-            value={value.join('')}
+            value={contentLog.join('')}
             onChange={(evt) => evt.preventDefault()}
             onClick={() => setIsEditorActive(true)}
             placeholder="Content..."
             required
             pattern=".{4,}"
           />
-          <Editor value={value} setValue={setValue} isEditorActive={isEditorActive} />
+          <Editor
+            contentLog={contentLog}
+            setContentLog={setContentLog}
+            isEditorActive={isEditorActive}
+          />
         </div>
         <button id="save-btn" type="submit">SAVE FILE</button>
       </form>
