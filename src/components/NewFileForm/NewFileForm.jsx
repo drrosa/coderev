@@ -13,19 +13,19 @@ export default function NewFileForm({ addFile, user, foundFile }) {
   const [intervalId, setIntervalId] = useState(null);
   const intervalRef = useRef(null);
 
-  useEffect(() => {
-    const onBodyClick = (evt) => {
-      const textareaContainer = textareaContainerRef.current;
-      if (textareaContainer.contains(evt.target) && isEditorActive === false) {
-        return;
-      }
-      setIsEditorActive(false);
-    };
-    document.body.addEventListener('click', onBodyClick);
-    return () => {
-      document.body.removeEventListener('click', onBodyClick);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const onBodyClick = (evt) => {
+  //     const textareaContainer = textareaContainerRef.current;
+  //     if (textareaContainer.contains(evt.target) && isEditorActive === false) {
+  //       return;
+  //     }
+  //     setIsEditorActive(false);
+  //   };
+  //   document.body.addEventListener('click', onBodyClick);
+  //   return () => {
+  //     document.body.removeEventListener('click', onBodyClick);
+  //   };
+  // }, []);
 
   async function handleAddFile(evt) {
     evt.preventDefault();
@@ -48,6 +48,7 @@ export default function NewFileForm({ addFile, user, foundFile }) {
   return (
     <div className="new-file-form">
       <h2>New File</h2>
+      <button onClick={() => setIsEditorActive(!isEditorActive)}>{isEditorActive ? 'Hide Editor' : 'Show Editor'}</button>
       <form onSubmit={handleAddFile}>
         <input
           value={filename}
@@ -60,7 +61,7 @@ export default function NewFileForm({ addFile, user, foundFile }) {
           <textarea
             value={foundFile.length !== 0 ? foundFile.contentLog.join('') : contentLog.join('')}
             onChange={(evt) => evt.preventDefault()}
-            onClick={() => setIsEditorActive(true)}
+            // onClick={() => setIsEditorActive(true)}
             placeholder="Content..."
             required
             pattern=".{4,}"
