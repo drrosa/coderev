@@ -11,11 +11,11 @@ export default function useReverseForward(initialValue) {
   };
 
   const reverse = () => {
-    setCurrentIndex(() => Math.max(currentIndex - 1, 0));
+    setCurrentIndex((idx) => Math.max(idx - 1, 0));
   };
 
   const forward = () => {
-    setCurrentIndex(() => Math.min(currentIndex + 1, codeHistory.length - 1));
+    setCurrentIndex((idx) => Math.min(idx + 1, codeHistory.length - 1));
   };
   return [codeHistory[currentIndex], set, reverse, forward];
 }
