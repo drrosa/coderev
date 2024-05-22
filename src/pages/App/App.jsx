@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   useHref, useNavigate,
 } from 'react-router-dom';
@@ -9,11 +9,19 @@ import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
 import FileList from '../../components/FileList/FileList';
 import NewFileForm from '../../components/NewFileForm/NewFileForm';
+import { fetchFiles } from '../../utilities/files-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [files, setFiles] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function getFiles() {
+      setFiles(await fetchFiles());
+    }
+    getFiles();
+  }, []);
 
   function addFile(file) {
     setFiles([...files, file]);
