@@ -89,6 +89,12 @@ code {
   border-radius: 1vmin;
 }
 
+.form-container.signup > form,
+.form-container.login > form {
+  width: 360px;
+  margin: 0 auto;
+}
+
 p.error-message {
   color: var(--orange);
   text-align: center;
@@ -98,8 +104,6 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  width: 360px;
-  margin: 0 auto;
   color: var(--text-light);
 }
 

@@ -1,0 +1,11 @@
+.authpage-wrapper {
+  padding: 1.25rem 0;
+}
+
+.form-toggler-container {
+  padding: 1.17rem 0;
+}
+
+.form-toggler-container > p {
+  font-size: 20px;
+}
