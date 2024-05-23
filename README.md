@@ -2,10 +2,6 @@
 
 Code Editor is an online code editor built with the MERN stack. Users can write code and "jump" to various points in their written code.
 
-## Visit the Site
-
-Check out the **Code Editor** [here](https://coderev-d872e9f256c3.herokuapp.com/)!
-
 ## Technologies Used
 
 ### Frontend
@@ -26,7 +22,9 @@ Visit their [website](https://react-spectrum.adobe.com/) or [GitHub](https://git
 
 ## Getting Started
 
-WIP
+#### View the [Trello](https://trello.com/invite/b/z4Js1zty/ATTId660f35652fd7d4745012c107c3b2bdeECE1FBF5/code-editor) board.
+
+#### Visit the [Code Editor](https://coderev-d872e9f256c3.herokuapp.com/) site!
 
 ## Screenshots
 
