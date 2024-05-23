@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Form, TextField, Button } from '@adobe/react-spectrum';
 import * as usersService from '../../utilities/users-service';
 
 export default function LoginForm({ setUser }) {
@@ -8,8 +9,8 @@ export default function LoginForm({ setUser }) {
   });
   const [error, setError] = useState('');
 
-  function handleChange(evt) {
-    setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
+  function handleChange(inputValue, name) {
+    setCredentials({ ...credentials, [name]: inputValue });
     setError('');
   }
 
@@ -29,14 +30,26 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
+      <div className='form-container'>
+        <Form autoComplete="off" onSubmit={handleSubmit} isRequired necessityIndicator="label">
+          <TextField
+            label="Email"
+            type="text"
+            name="email"
+            value={credentials.email}
+            onChange={(value) => handleChange(value, 'email')}
+            isRequired
+          />
+          <TextField
+            label="Password"
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={(value) => handleChange(value, 'password')}
+            isRequired
+          />
+          <Button type="submit" variant="primary" style="fill" >LOG IN</Button>
+        </Form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
     </div>
