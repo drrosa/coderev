@@ -1,0 +1,11 @@
+.file {
+  text-decoration: underline;
+  list-style-type: none;
+  width: 200px;
+  display: block;
+}
+
+.file:hover{
+  font-weight: 700;
+  cursor: pointer;
+}
