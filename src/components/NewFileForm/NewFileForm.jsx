@@ -4,9 +4,11 @@ import Editor from '../Editor/Editor';
 import useReverseForward from '../../hooks/useReverseForward';
 import { createFile } from '../../utilities/files-api';
 
-export default function NewFileForm({ addFile, user, fileContent }) {
+export default function NewFileForm({
+  addFile, user, fileContent, setFoundFile,
+}) {
   const [filename, setFilename] = useState('');
-  const [isEditorActive, setIsEditorActive] = useState(false);
+  const [isEditorActive, setIsEditorActive] = useState(true);
   const textareaContainerRef = useRef(null);
   const [contentLog, setContentLog, reverse, forward] = useReverseForward([], 25);
   // eslint-disable-next-line no-unused-vars
@@ -18,7 +20,7 @@ export default function NewFileForm({ addFile, user, fileContent }) {
     const fileData = { filename, user, contentLog };
     const file = await createFile(fileData);
     addFile(file);
-    setFilename(filename);
+    setFilename('');
   }
 
   const handleMouseDown = (action) => {
@@ -45,7 +47,7 @@ export default function NewFileForm({ addFile, user, fileContent }) {
         />
         <div className="textarea-container" ref={textareaContainerRef}>
           <textarea
-            value={fileContent.length !== 0 ? fileContent.join('') : contentLog.join('')}
+            value={fileContent.length ? fileContent.join('') : contentLog.join('')}
             onChange={(evt) => evt.preventDefault()}
             placeholder="Content..."
             required
@@ -53,6 +55,7 @@ export default function NewFileForm({ addFile, user, fileContent }) {
           />
           <Editor
             fileContent={fileContent}
+            setFoundFile={setFoundFile}
             contentLog={contentLog}
             setContentLog={setContentLog}
             isEditorActive={isEditorActive}

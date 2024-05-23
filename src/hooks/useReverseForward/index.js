@@ -3,8 +3,8 @@ import { useState } from 'react';
 export default function useReverseForward(initialValue) {
   const [contentLog, setContentLog] = useState([initialValue]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const set = (value) => {
-    const newContentLog = contentLog.slice(0, currentIndex + 1);
+  const set = (value, fileContentLog = null) => {
+    const newContentLog = fileContentLog || contentLog.slice(0, currentIndex + 1);
     newContentLog.push(value);
     setContentLog(newContentLog);
     setCurrentIndex(newContentLog.length - 1);
