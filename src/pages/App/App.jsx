@@ -44,7 +44,7 @@ export default function App() {
         { user
           ? <>
               <NavBar user={user} setUser={setUser} />
-              <NewFileForm addFile={addFile} user={user} foundFile={foundFile} />
+              <NewFileForm addFile={addFile} user={user} fileContent={foundFile.contentLog} />
               { files.length
                 ? <FileList files={files} findFile={findFile} />
                 : <h3>No Files Yet!</h3>

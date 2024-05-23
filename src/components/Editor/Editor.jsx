@@ -4,7 +4,7 @@ import { tokyoNight } from '@uiw/codemirror-theme-tokyo-night';
 import './Editor.css';
 
 export default function Editor({
-  contentLog, setContentLog, isEditorActive, foundFile,
+  contentLog, setContentLog, isEditorActive, fileContent,
 }) {
   const handleOnChange = (str) => {
     setContentLog(str.split(''));
@@ -13,7 +13,7 @@ export default function Editor({
   return (
     <div className='editor' style={{ visibility: `${isEditorActive ? 'visible' : 'hidden'}` }}>
       <CodeMirror
-        value={foundFile.length !== 0 ? foundFile.contentLog.join('') : contentLog.join('')}
+        value={fileContent.length !== 0 ? fileContent.join('') : contentLog.join('')}
         onChange={(text) => handleOnChange(text)}
         theme={tokyoNight}
         style={{ textAlign: 'left', overflow: 'auto' }}
