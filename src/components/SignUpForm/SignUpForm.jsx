@@ -11,9 +11,9 @@ export default class SignUpForm extends Component {
     error: '',
   };
 
-  handleChange = (evt) => {
+  handleChange = (inputValue, name) => {
     this.setState({
-      [evt.target.name]: evt.target.value,
+      [name]: inputValue,
       error: '',
     });
   };
@@ -46,7 +46,7 @@ export default class SignUpForm extends Component {
               type="text"
               name="name"
               value={this.state.name}
-              onChange={this.handleChange}
+              onChange={(value) => this.handleChange(value, 'name')}
               isRequired
             />
             <TextField
@@ -54,7 +54,7 @@ export default class SignUpForm extends Component {
               type="email"
               name="email"
               value={this.state.email}
-              onChange={this.handleChange}
+              onChange={(value) => this.handleChange(value, 'email')}
               isRequired
             />
             <TextField
@@ -62,7 +62,7 @@ export default class SignUpForm extends Component {
               type="password"
               name="password"
               value={this.state.password}
-              onChange={this.handleChange}
+              onChange={(value) => this.handleChange(value, 'password')}
               isRequired
             />
             <TextField
@@ -70,7 +70,7 @@ export default class SignUpForm extends Component {
               type="password"
               name="confirm"
               value={this.state.confirm}
-              onChange={this.handleChange}
+              onChange={(value) => this.handleChange(value, 'confirm')}
               isRequired
             />
             <Button type="submit" variant="primary" disabled={disable}>SIGN UP</Button>
