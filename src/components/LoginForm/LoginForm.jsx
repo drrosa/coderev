@@ -30,7 +30,7 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className='form-container'>
+      <div className='form-container login'>
         <Form autoComplete="off" onSubmit={handleSubmit} isRequired necessityIndicator="label">
           <TextField
             label="Email"

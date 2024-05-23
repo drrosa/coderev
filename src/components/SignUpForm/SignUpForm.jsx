@@ -39,7 +39,7 @@ export default class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <div>
-        <div className="form-container">
+        <div className="form-container signup">
           <Form autoComplete="off" onSubmit={this.handleSubmit} isRequired necessityIndicator="label">
             <TextField
               label="Name"
@@ -73,7 +73,7 @@ export default class SignUpForm extends Component {
               onChange={(value) => this.handleChange(value, 'confirm')}
               isRequired
             />
-            <Button type="submit" variant="primary" disabled={disable}>SIGN UP</Button>
+            <Button type="submit" variant="primary" style="fill" disabled={disable}>SIGN UP</Button>
           </Form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
