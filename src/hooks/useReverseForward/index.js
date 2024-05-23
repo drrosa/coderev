@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 export default function useReverseForward(initialValue) {
-  const [codeHistory, setCodeHistory] = useState([initialValue]);
+  const [contentLog, setContentLog] = useState([initialValue]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const set = (value) => {
-    const newCodeHistory = codeHistory.slice(0, currentIndex + 1);
-    newCodeHistory.push(value);
-    setCodeHistory(newCodeHistory);
-    setCurrentIndex(newCodeHistory.length - 1);
+    const newContentLog = contentLog.slice(0, currentIndex + 1);
+    newContentLog.push(value);
+    setContentLog(newContentLog);
+    setCurrentIndex(newContentLog.length - 1);
   };
 
   const reverse = () => {
@@ -15,7 +15,7 @@ export default function useReverseForward(initialValue) {
   };
 
   const forward = () => {
-    setCurrentIndex((idx) => Math.min(idx + 1, codeHistory.length - 1));
+    setCurrentIndex((idx) => Math.min(idx + 1, contentLog.length - 1));
   };
-  return [codeHistory[currentIndex], set, reverse, forward];
+  return [contentLog[currentIndex], set, reverse, forward];
 }
