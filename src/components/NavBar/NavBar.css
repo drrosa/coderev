@@ -1,0 +1,29 @@
+.Nav {
+  border-bottom: solid black 1px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.Nav > h1 {
+  margin-right: 55px;
+}
+
+span {
+  font-weight: 700;
+}
+
+.Nav > .logout {
+  height: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
+  color: white;
+  background-color: #191970;
+  text-decoration: none;
+}
+
+.Nav > .logout:hover{
+  
+}

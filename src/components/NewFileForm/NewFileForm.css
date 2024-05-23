@@ -1,5 +1,7 @@
 .new-file-form form {
   display: block;
+  margin-top: 15px;
+  padding: 15px;
 }
 
 .new-file-form .textarea-container {
@@ -21,4 +23,32 @@
   white-space: pre-wrap;
   overflow: auto;
   resize: none;
+}
+
+.fileName-save{
+  /* border: solid black 1px; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.fileName-save > button {
+  margin-bottom: 30px;
+}
+
+.mousedown-rev, .mousedown-for{
+  background-color: #000080;
+}
+
+.view-edit-btn{
+  position: relative;
+  top: 85px;
+  background-color: #5949b3;
+}
+
+#save-btn{
+  background-color: #000080;
+}
+
+.onclick-rev, .onclick-for{
+  background-color: #6A5ACD;
 }

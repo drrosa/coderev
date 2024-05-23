@@ -35,16 +35,19 @@ export default function NewFileForm({
 
   return (
     <div className="new-file-form">
-      <h2>New File</h2>
-      <button onClick={() => setIsEditorActive(!isEditorActive)}>{isEditorActive ? 'Hide Editor' : 'Show Editor'}</button>
+      {/* <h2>New</h2> */}
+      <button className='view-edit-btn' onClick={() => setIsEditorActive(!isEditorActive)}>{isEditorActive ? '✏️' : '👁️'}</button>
       <form onSubmit={handleAddFile}>
-        <input
-          value={filename}
-          onChange={(evt) => setFilename(evt.target.value)}
-          placeholder="Filename"
-          required
-          pattern=".{4,}"
-        />
+        <div className='fileName-save'>
+          <input
+            value={filename}
+            onChange={(evt) => setFilename(evt.target.value)}
+            placeholder="Filename"
+            required
+            pattern=".{4,}"
+          />
+          <button id="save-btn" type="submit">SAVE FILE</button>
+        </div>
         <div className="textarea-container" ref={textareaContainerRef}>
           <textarea
             value={fileContent.length ? fileContent.join('') : contentLog.join('')}
@@ -61,17 +64,18 @@ export default function NewFileForm({
             isEditorActive={isEditorActive}
           />
         </div>
-        <button id="save-btn" type="submit">SAVE FILE</button>
       </form>
       <button
+          className='mousedown-rev'
           onMouseDown={() => handleMouseDown(reverse)}
           onMouseUp={handleMouseUp}
         >
           Hold Reverse
         </button>
-        <button onClick={reverse}>Click Reverse</button>
-        <button onClick={forward}>Click Forward</button>
+        <button className='onclick-rev' onClick={reverse}>Click Reverse</button>
+        <button className='onclick-for' onClick={forward}>Click Forward</button>
         <button
+          className='mousedown-for'
           onMouseDown={() => handleMouseDown(forward)}
           onMouseUp={handleMouseUp}
         >
