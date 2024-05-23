@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import './NewFileForm.css';
 import Editor from '../Editor/Editor';
 import useReverseForward from '../../hooks/useReverseForward';
@@ -12,20 +12,6 @@ export default function NewFileForm({ addFile, user, foundFile }) {
   // eslint-disable-next-line no-unused-vars
   const [intervalId, setIntervalId] = useState(null);
   const intervalRef = useRef(null);
-
-  // useEffect(() => {
-  //   const onBodyClick = (evt) => {
-  //     const textareaContainer = textareaContainerRef.current;
-  //     if (textareaContainer.contains(evt.target) && isEditorActive === false) {
-  //       return;
-  //     }
-  //     setIsEditorActive(false);
-  //   };
-  //   document.body.addEventListener('click', onBodyClick);
-  //   return () => {
-  //     document.body.removeEventListener('click', onBodyClick);
-  //   };
-  // }, []);
 
   async function handleAddFile(evt) {
     evt.preventDefault();
@@ -61,7 +47,6 @@ export default function NewFileForm({ addFile, user, foundFile }) {
           <textarea
             value={foundFile.length !== 0 ? foundFile.contentLog.join('') : contentLog.join('')}
             onChange={(evt) => evt.preventDefault()}
-            // onClick={() => setIsEditorActive(true)}
             placeholder="Content..."
             required
             pattern=".{4,}"

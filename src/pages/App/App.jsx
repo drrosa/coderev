@@ -33,10 +33,9 @@ export default function App() {
   }
 
   function findFile(fileID) {
+    // eslint-disable-next-line no-underscore-dangle
     const thisFile = files.find((file) => file._id === fileID);
-
     setFoundFile(thisFile);
-    // console.log(foundFile);
   }
 
   return (
