@@ -1,6 +1,6 @@
-# Code Editor
+# codeRev
 
-Code Editor is an online code editor built with the MERN stack. Users can write code and "jump" to various points in their written code.
+codeRev is an experimental coding tool built with the MERN stack. Users can write code and and "jump" to various points in their written code. This can be a useful tool for tracking one's thought process over time, coding interview practice, live presentations, etc.
 
 ## Technologies Used
 
@@ -24,7 +24,7 @@ Visit their [website](https://react-spectrum.adobe.com/) or [GitHub](https://git
 
 #### View the [Trello](https://trello.com/invite/b/z4Js1zty/ATTId660f35652fd7d4745012c107c3b2bdeECE1FBF5/code-editor) board.
 
-#### Visit the [Code Editor](https://coderev-d872e9f256c3.herokuapp.com/) site!
+#### Visit the [codeRev](https://coderev-d872e9f256c3.herokuapp.com/) site!
 
 ## Screenshots
 
