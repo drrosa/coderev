@@ -11,7 +11,7 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav className='Nav'>
       <span>Welcome, {user.name}</span>
-      <h1>CodeRev</h1>
+      <h1>codeRev</h1>
       <Link to="" className='logout' onClick={handleLogOut}>Log Out</Link>
     </nav>
   );

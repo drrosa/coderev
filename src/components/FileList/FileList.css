@@ -1,10 +1,21 @@
 .file-list-container {
   display: inline-flex;
   flex-direction: column;
+  margin: 0 auto;
+  padding-left: 2vmin;
+  width: 14rem;
 }
 
 @media screen and (min-width: 1200px) {
-  .file-list-container > .file-list {
+  .file-list-container>.file-list {
     display: block;
   }
+}
+
+.time-stamp {
+  position: absolute;
+  font-size: 0.65rem;
+  bottom: 0;
+  right: 0;
+  padding: 0.2rem;
 }

@@ -32,7 +32,9 @@ export default function FileList({ files, findFile }) {
           {files.map((file) => (
             // eslint-disable-next-line no-underscore-dangle
             <Item key={file._id} textValue={file.filename}>
-              {`${file.filename} (${getTimeStamp(file)})`}
+              <span>{`${file.filename}`}</span> &nbsp;
+              <br /> &nbsp;
+              <span className='time-stamp'>{getTimeStamp(file)}</span>
             </Item>
           ))}
         </ListView>
