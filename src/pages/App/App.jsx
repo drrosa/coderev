@@ -41,22 +41,23 @@ export default function App() {
   return (
     <Provider theme={defaultTheme} router={{ navigate, useHref }}>
       <main className="App">
-        { user
-          ? <>
-              <NavBar user={user} setUser={setUser} />
+        {user ? (
+          <>
+            <NavBar user={user} setUser={setUser} />
+            <div className="content-container">
+              <FileList files={files} findFile={findFile} />
               <NewFileForm
                 addFile={addFile}
                 user={user}
                 fileContent={foundFile.contentLog}
                 setFoundFile={setFoundFile}
               />
-              { files.length
-                ? <FileList files={files} findFile={findFile} />
-                : <h3>No Files Yet!</h3>
-              }
-            </>
-          : <AuthPage setUser={setUser} />
-        }
+            </div>
+            {files.length === 0 && <h3>No Files Yet!</h3>}
+          </>
+        ) : (
+          <AuthPage setUser={setUser} />
+        )}
       </main>
     </Provider>
   );

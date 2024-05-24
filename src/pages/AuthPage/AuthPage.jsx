@@ -15,7 +15,7 @@ export default function AuthPage({ setUser }) {
       }
       <div className='form-toggler-container'>
         <p>{showSignUp ? 'Already have an account?' : 'Don\'t have an account yet?'}</p>
-        <Button variant='primary' style="outline" onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</Button>
+        <Button variant='primary' style="outline" onPress={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</Button>
       </div>
     </div>
   );
