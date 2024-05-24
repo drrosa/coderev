@@ -23,8 +23,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  /* padding: 2vmin; */
+  background-color: #f8f8f8;
   height: 100vh;
 }
 
@@ -82,15 +81,13 @@ code {
 
 .form-container {
   padding: 3vmin;
-  /* background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3); */
   display: flex;
   justify-content: center;
   border-radius: 1vmin;
 }
 
-.form-container.signup > form,
-.form-container.login > form {
+.form-container.signup>form,
+.form-container.login>form {
   width: 360px;
   margin: 0 auto;
 }
@@ -119,7 +116,8 @@ input {
   border: 0.1vmin solid var(--tan-3);
   border-radius: 0.5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
+  /* prevent lastpass */
   outline: none;
 }
 
@@ -156,7 +154,6 @@ button.btn-xs {
 button:disabled,
 form:invalid button[type='submit'] {
   cursor: not-allowed;
-  /* background-color: var(--tan-4); */
 }
 
 button[type='submit'] {
