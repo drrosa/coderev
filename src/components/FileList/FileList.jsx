@@ -19,21 +19,23 @@ export default function FileList({ files, findFile }) {
   return (
     <div className="file-list-container">
       <h1>File Versions</h1>
-      <ListView
-        selectionMode="none"
-        aria-label="File List"
-        maxWidth="size-5000"
-        onAction={(key) => {
-          findFile(key);
-        }}
-      >
-        {files.map((file) => (
-          // eslint-disable-next-line no-underscore-dangle
-          <Item key={file._id} textValue={file.filename}>
-            {`${file.filename} (${getTimeStamp(file)})`}
-          </Item>
-        ))}
-      </ListView>
+      <div className="file-list">
+        <ListView
+          selectionMode="none"
+          aria-label="File List"
+          maxWidth="size-5000"
+          onAction={(key) => {
+            findFile(key);
+          }}
+        >
+          {files.map((file) => (
+            // eslint-disable-next-line no-underscore-dangle
+            <Item key={file._id} textValue={file.filename}>
+              {`${file.filename} (${getTimeStamp(file)})`}
+            </Item>
+          ))}
+        </ListView>
+      </div>
     </div>
   );
 }
