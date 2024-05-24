@@ -24,6 +24,7 @@ export default function FileList({ files, findFile }) {
           selectionMode="none"
           aria-label="File List"
           maxWidth="size-5000"
+          margin="0 auto"
           onAction={(key) => {
             findFile(key);
           }}

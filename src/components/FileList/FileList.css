@@ -3,11 +3,6 @@
   flex-direction: column;
 }
 
-.file-list-container > .file-list {
-  display: flex;
-  justify-content: center;
-}
-
 @media screen and (min-width: 1200px) {
   .file-list-container > .file-list {
     display: block;
