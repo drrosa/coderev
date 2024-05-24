@@ -1,5 +1,8 @@
-.file-list{
-  width: 250px;
-  display: block;
-  margin: 0 auto;
+.file-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-list-container {
+  flex: 1;
 }
