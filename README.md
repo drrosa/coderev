@@ -28,11 +28,35 @@ Visit their [website](https://react-spectrum.adobe.com/) or [GitHub](https://git
 
 ## Screenshots
 
-WIP
+#### Sign Up Page
 
-<!-- <p>-->
-<!--<img src="" width="800">-->
-<!--</p>-->
+<p>
+  <img src="/public/assets/signup-page.png" alt="signup page" width="800">
+</p>
+
+<br />
+
+#### Log In Page
+
+<p>
+  <img src="/public/assets/login-page.png" alt="login page" width="800">
+</p>
+
+<br />
+
+#### Main Editor Page (no user content)
+
+<p>
+  <img src="/public/assets/main-editor-page-blank.png" alt="blank main editor page" width="800">
+</p>
+
+<br />
+
+#### Main Editor Page (with user content)
+
+<p>
+  <img src="/public/assets/main-editor-page-user-content.png" alt="main editor page with user content" width="800">
+</p>
 
 ## Next Steps
 
