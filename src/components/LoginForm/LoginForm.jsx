@@ -48,6 +48,7 @@ export default function LoginForm({ setUser }) {
             onChange={(value) => handleChange(value, 'password')}
             isRequired
           />
+          {/* eslint-disable-next-line react/style-prop-object */}
           <Button type="submit" variant="primary" style="fill" >LOG IN</Button>
         </Form>
       </div>
