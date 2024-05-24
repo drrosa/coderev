@@ -30,12 +30,11 @@
 }
 
 .fileName-save {
-  /* border: solid black 1px; */
   display: flex;
   justify-content: space-between;
 }
 
-.fileName-save > button {
+.fileName-save>button {
   margin-bottom: 30px;
 }
 
@@ -47,7 +46,6 @@
 .view-edit-btn {
   position: relative;
   top: 85px;
-  background-color: #5949b3;
 }
 
 #save-btn {
@@ -57,4 +55,8 @@
 .onclick-rev,
 .onclick-for {
   background-color: #6a5acd;
+}
+
+.reverse-forward-buttons>button {
+  margin: 10px;
 }

@@ -1,5 +1,7 @@
+/* eslint-disable react/style-prop-object */
 import { useState, useRef } from 'react';
 import './NewFileForm.css';
+import { Button } from '@adobe/react-spectrum';
 import Editor from '../Editor/Editor';
 import useReverseForward from '../../hooks/useReverseForward';
 import { createFile } from '../../utilities/files-api';
@@ -35,8 +37,9 @@ export default function NewFileForm({
 
   return (
     <div className="new-file-form">
-      {/* <h2>New</h2> */}
-      <button className='view-edit-btn' onClick={() => setIsEditorActive(!isEditorActive)}>{isEditorActive ? '✏️' : '👁️'}</button>
+      <div className='view-edit-btn'>
+      <Button variant='secondary' style="fill" onPress={() => setIsEditorActive(!isEditorActive)}>{isEditorActive ? '✏️' : '👀'}</Button>
+      </div>
       <form onSubmit={handleAddFile}>
         <div className='fileName-save'>
           <input
@@ -46,7 +49,7 @@ export default function NewFileForm({
             required
             pattern=".{4,}"
           />
-          <button id="save-btn" type="submit">SAVE FILE</button>
+          <Button type="submit" variant="accent" style="fill" >SAVE FILE</Button>
         </div>
         <div className="textarea-container" ref={textareaContainerRef}>
           <textarea
@@ -65,22 +68,12 @@ export default function NewFileForm({
           />
         </div>
       </form>
-      <button
-          className='mousedown-rev'
-          onMouseDown={() => handleMouseDown(reverse)}
-          onMouseUp={handleMouseUp}
-        >
-          Hold Reverse
-        </button>
-        <button className='onclick-rev' onClick={reverse}>Click Reverse</button>
-        <button className='onclick-for' onClick={forward}>Click Forward</button>
-        <button
-          className='mousedown-for'
-          onMouseDown={() => handleMouseDown(forward)}
-          onMouseUp={handleMouseUp}
-        >
-          Hold Forward
-        </button>
+      <div className='reverse-forward-buttons'>
+      <Button variant="primary" style="outline" onPressStart={() => handleMouseDown(reverse)} onPressEnd={handleMouseUp}>Hold Reverse</Button>
+      <Button variant="primary" style="outline" onPress={reverse}>Click Reverse</Button>
+      <Button variant="primary" style="outline" onPress={forward}>Click Forward</Button>
+      <Button variant="primary" style="outline" onPressStart={() => handleMouseDown(forward)} onPressEnd={handleMouseUp}>Hold Forward</Button>
+      </div>
     </div>
   );
 }

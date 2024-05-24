@@ -84,6 +84,7 @@ export default class SignUpForm extends Component {
               onChange={(value) => this.handleChange(value, 'confirm')}
               isRequired
             />
+            {/* eslint-disable-next-line react/style-prop-object */}
             <Button type="submit" variant="primary" style="fill" isDisabled={disable}>SIGN UP</Button>
           </Form>
         </div>
