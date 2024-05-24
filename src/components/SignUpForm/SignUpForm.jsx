@@ -85,7 +85,7 @@ export default class SignUpForm extends Component {
               onChange={(value) => this.handleChange(value, 'confirm')}
               isRequired
             />
-            <Button type="submit" variant="primary" style="fill" disabled={disable}>SIGN UP</Button>
+            <Button type="submit" variant="primary" style="fill" isDisabled={disable}>SIGN UP</Button>
           </Form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
