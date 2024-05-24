@@ -18,16 +18,28 @@ export default class SignUpForm extends Component {
     });
   };
 
+  validateEmail = (emailAddress) => {
+    const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return regex.test(emailAddress);
+  };
+
   handleSubmit = async (evt) => {
     evt.preventDefault();
+    const { name, email, password } = this.state;
+
+    if (!this.validateEmail(email)) {
+      this.setState({ error: 'Invalid email' });
+      return;
+    }
+
     try {
-      const { name, email, password } = this.state;
       const formData = { name, email, password };
       // The promise returned by the signUp service
       // method will resolve to the user object included
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
+      console.log(user);
     } catch {
       // An error occurred
       // Probably due to a duplicate email
