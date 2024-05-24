@@ -1,8 +1,4 @@
 .file-list-container {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-}
-
-.file-list-container {
-  flex: 1;
 }
