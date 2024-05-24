@@ -40,8 +40,14 @@
 
 .content-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   gap: 3rem;
   max-width: 2000px;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 1200px) {
+  .content-container {
+    flex-direction: row;
+  }
 }
