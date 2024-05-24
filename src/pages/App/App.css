@@ -41,8 +41,7 @@
 .content-container {
   display: flex;
   flex-direction: row;
-}
-
-.content-container>div {
-  flex: 1;
+  gap: 3rem;
+  max-width: 2000px;
+  margin: 0 auto;
 }
